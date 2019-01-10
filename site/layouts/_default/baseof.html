@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ $.Site.Language.Lang }}" class="landing-3 default-style">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <base href="{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv "CONTEXT")) (getenv "URL") (getenv "DEPLOY_PRIME_URL") }}{{ else }}{{ $.Site.BaseURL }}{{ end }}">
+  <title>{{ $.Site.Title }}</title>
+  <link rel="icon" type="image/x-icon" href="site/static/favicon.ico">
+
+  {{ $stylesheet := .Site.Data.webpack.main }}
+  {{ with $stylesheet.css }}
+    <link href="{{ relURL . }}" rel="stylesheet">
+  {{ end }}
+
+</head>
+
+<body>
+  <div class="page-loader">
+      <div class="bg-success"></div>
+    </div>
+  {{ block "header" . }}{{ partial "header" . }}{{end}}
+
+  {{ block "main" . }}{{end}}
+
+  {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+
+  {{ $script := .Site.Data.webpack.main }}
+  {{ with $script.js }}
+    <script src="{{ relURL . }}"></script>
+  {{ end }}
+</body>
+
+</html>
