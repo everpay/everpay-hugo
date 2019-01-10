@@ -1,5 +1,32 @@
 {{ define "main" }}
 
+<div class="bg-success">
+
+  <div class="overflow-hidden">
+    <div class="container d-flex align-items-stretch ui-mh-100vh p-0">
+      <div class="row w-100">
+        <div class="d-flex col-md justify-content-center align-items-center order-2 order-md-1 position-relative p-5">
+          <div class="error-bg-skew bg-white"></div>
+
+          <div class="text-md-left text-center">
+            <h1 class="display-2 font-weight-bolder mb-4">Whoops...</h1>
+            <div class="text-xlarge font-weight-light mb-5">We couldn't find the page<br> you are looking for :(</div>
+            <button type="button" class="btn btn-primary"><a href="{{ "/" | relURL }}"> ←&nbsp; Go Back</a> </button>
+          </div>
+        </div>
+
+        <div class="d-flex col-md-5 justify-content-center align-items-center order-1 order-md-2 text-center text-white p-5">
+          <div>
+            <div class="error-code font-weight-bolder mb-2">404</div>
+            <div class="error-description font-weight-light">Not Found</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <h1>Nothing Here...</h1>
 <h2 style="font-size: 120px; margin:0;">💩</h2>
 <h3><a href="{{ "/" | relURL }}">Go Home</a></h3>
